@@ -1,0 +1,220 @@
+//fonts
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Lexend+Deca&display=swap');
+
+//CSS variables
+
+:root{
+    --sedans-bg: hsl(31, 77%, 52%);
+    --suvs-bg: hsl(184, 100%, 22%);
+    --luxury-bg: hsl(179, 100%, 13%);
+    --paragraph-text-color: hsla(0, 0%, 100%, 0.75);
+    --very-ligth-grey: hsl(0, 0%, 95%); //(background, headings, buttons)
+    --heading-font: 'Big Shoulders Display', cursive;
+    --paragraph-font: 'Lexend Deca', sans-serif;
+}
+
+//global rules
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+//css rules
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--very-ligth-grey);
+
+    //main container here edit the width of the card and its display setttings
+    // I used GRID layout to create this, for mobile i used flex
+
+    .container{
+        width: 60%;
+        display: grid;
+
+        //create three columns for each car container
+        grid-template-columns: repeat(3,1fr);
+
+        .sedans-container{
+            background-color: var(--sedans-bg);
+            border-radius: 10px 0px 0px 10px;
+
+            a{
+                color: var(--sedans-bg);
+            }
+        }
+
+        .suvs-container{
+            background-color: var(--suvs-bg);
+
+            a{
+                color: var(--suvs-bg);
+            }
+        }
+
+        .luxury-container{
+            background-color: var(--luxury-bg);
+            border-radius: 0px 10px 10px 0px;
+
+            a{
+                color: var(--luxury-bg);
+            }
+        }
+
+        //general rules for all cars containers (the elements have <section> tag)
+        section{
+
+            padding: 40px;
+
+            img{
+                margin-bottom: 30px;
+            }
+
+            h1{
+                font-family: var(--heading-font);
+                color: var(--very-ligth-grey);
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
+
+            p{
+                font-family: var(--paragraph-font);
+                color: var(--paragraph-text-color);
+                font-weight: 400;
+                font-size: .9rem;
+                line-height: 1.5rem;
+                margin-bottom: 60px;
+            }
+
+            a{
+                font-size: .8rem;
+                font-family: var(--paragraph-font);
+                text-decoration: none;
+                border-radius: 20px;
+                padding: 15px 25px;
+                background-color: var(--very-ligth-grey);
+            }
+
+            a:hover{
+                background-color: transparent;
+                border: 3px solid var(--very-ligth-grey);
+                color: var(--very-ligth-grey);
+            }
+        }
+    }
+    
+    //author button with hover/action effect for mobile and desktop
+    .author-container{
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+
+        //changue the position of the flex elements
+        display: flex;
+        flex-direction: row-reverse;
+
+        align-items: center;
+        color: var(--paragraph-font);
+        font-family: var(--paragraph-font);
+        font-size: .7rem;
+
+        a{
+            text-decoration: none;
+            color: var(--paragraph-text-color);
+        }
+
+        img{
+            width: 60px;
+            border-radius: 100%;
+            margin-left: 20px;
+        }
+
+        //inactive
+        .author{
+            display: none;
+            padding: 5px 10px;
+            border-radius: 10px 10px 0px 10px;   
+        }
+
+        img:hover{
+            cursor: pointer;
+        }
+
+        //when you click the image the element cahnge the class and add the effect
+        .author-active{
+            background-color: rgb(173, 173, 173);
+            padding: 5px 10px;
+            border-radius: 10px 10px 0px 10px;
+            animation-duration: 1s;
+            animation-name: authorShow;
+            animation-timing-function: ease-in-out;
+        }
+
+        //animation to show the div
+        @keyframes authorShow {
+            from {
+                transform: translateX(20px);
+                opacity: 0;
+            }
+        
+            to {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }        
+    }
+
+}
+
+//Media queries
+
+@media screen and(max-width: 1024px) {
+
+    body{
+        .container{
+            width: 80%;
+        }
+    }
+}
+
+//For dimensions <768 the cars containers
+@media screen and(max-width: 768px) {
+
+    body{
+
+        height: max-content;
+        .container{
+
+            //the elements shows one below the other
+            display: flex;
+            flex-direction: column;
+            width: 70%;
+            margin: 20px 0px;
+            height: max-content;
+    
+            .sedans-container{
+                border-radius: 10px 10px 0px 0px;
+            }
+    
+            .luxury-container{
+                border-radius: 0px 0px 10px 10px;
+            }
+        }
+
+    }  
+}
+
+@media screen and (max-width: 425px) {
+
+    body{
+        .container{
+            width: 90%;
+        }
+    }
+}

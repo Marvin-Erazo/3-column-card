@@ -30,16 +30,18 @@ Users should be able to:
 
 Mobile
 
+![3-column-card-mobile](https://user-images.githubusercontent.com/90436675/159191309-abc73b08-08a5-4e9c-a4db-15728d082f07.png)
 
 
 Desktop
 
+![3-column-card-desktop](https://user-images.githubusercontent.com/90436675/159191313-c13e6546-7223-45af-be20-aebf58fe19bb.png)
 
 
 ### Links
 
-- Solution URL: 
-- Live Site URL: 
+- Solution URL: https://github.com/Marvin-Erazo/3-column-card
+- Live Site URL: https://3-column-card-me.netlify.app/
 
 ## My process
 
